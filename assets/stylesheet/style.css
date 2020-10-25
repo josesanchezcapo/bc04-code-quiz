@@ -1,0 +1,26 @@
+/* Adding style to the buttons */
+
+/* to all the buttons */
+.buttons {
+    margin-top: 30px;
+}
+
+/* counter button */
+#btnStart {
+
+    width: 250px;
+    width: 250px;
+    margin: 30px 30px;
+    padding: 30px 5px;
+    margin-left: 35%;
+    
+}
+
+/* choises button */
+#btnQuiz_0, #btnQuiz_1, #btnQuiz_2, #btnQuiz_3 {
+    width: 250px;
+    margin: 30px 30px 10px 0px;
+    padding: 30px 10px;
+    margin-left: 15%
+}
+
