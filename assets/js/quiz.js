@@ -2,6 +2,10 @@ var minutesDisplay = document.querySelector("#minutes");
 var secondsDisplay = document.querySelector("#seconds");
 var btnStart = document.querySelector("#start");
 var questionDisplay = document.querySelector("#displayQuestion");
+var choiseDisplay0 = document.querySelector("#choice_0");
+var choiseDisplay1 = document.querySelector("#choice_1");
+var choiseDisplay2 = document.querySelector("#choice_2");
+var choiseDisplay3 = document.querySelector("#choice_3");
 
 var totalSeconds = 0;
 var secondsElapsed = 0;
@@ -11,7 +15,13 @@ var interval;
 
 // The array of questions for the quiz.
 var questions = [
-  { q: "Inside which HTML element do we put the JavaScript?" }
+  { q: "Inside which HTML element do we put the JavaScript?",
+    c0: "TEST-0", 
+    c1: "TEST-1",
+    c2: "TEST-2",
+    c3: "TEST-3"
+  
+  }
 ];
 
 //
@@ -24,9 +34,13 @@ var runningQuestion = 0;
 
 function renderQuestion(){
 
-  t = questions[0];
+  var t = questions[0];
 
-  questionDisplay.textContent = t.q;
+  questionDisplay.textContent = t.q 
+  choiseDisplay0.textContent = t.c0;
+  choiseDisplay1.textContent = t.c1;
+  choiseDisplay2.textContent = t.c2;
+  choiseDisplay3.textContent = t.c3;
 
 
 }//
