@@ -15,7 +15,7 @@
     <!-- Adding my Js file -->
     <script src="./assets/js/quiz.js"></script>
 
-    <title>JavaScript Quiz</title>
+    <title>My JavaScript Quiz</title>
 </head>
 
 <body>
@@ -27,13 +27,17 @@
             <!-- Counter Card-->
             <div class="card" style="width: 18rem; height: 10rem;">
                 <div class="card-body" style="text-align: center;">
-                    <h1 class="card-title">00:00</h1>
+                    <h1 class="card-title timer">Timer:
+                        <a id="minutes" style="font-size: 75%;">25</a>
+                        <a style="font-size: 75%;">:</a>
+                        <a id="seconds" style="font-size: 75%;">00</a>
+                    </h1>
                     <a href="#" class="btn btn-primary">Start</a>
                     <p class="card-text"></p>
                 </div>
             </div>
 
-            <!-- Quiz  -->
+            <!-- Quiz Container -->
 
             <h1 class="display-4" style="text-align: center;">JavaScript Quiz</h1>
             <p id="questions" style="margin-top: 10%;"></p>
@@ -41,15 +45,18 @@
 
             <!-- Questions -->
             <p id="displayQuestion"></p>
-            <div class="buttons" id="btnQuiz">
-                <button type="button" class="btn btn-primary"><span id="choice0"></span></button>
-                <button type="button" class="btn btn-primary" id="btnQuiz_1"><span id="choice1"></span></button>
-                <button type="button" class="btn btn-primary" id="btnQuiz_2"><span id="choice2"></span></button>
-                <button type="button" class="btn btn-primary" id="btnQuiz_3"><span id="choice3"></span></button>
+            <div class="buttons">
+                <button type="button" class="btn btn-primary" id="btnQuiz_0"><span id="choice_0"></span></button>
+                <button type="button" class="btn btn-primary" id="btnQuiz_1"><span id="choice_1"></span></button>
+                <button type="button" class="btn btn-primary" id="btnQuiz_2"><span id="choice_2"></span></button>
+                <button type="button" class="btn btn-primary" id="btnQuiz_3"><span id="choice_3"></span></button>
             </div>
             <hr class="my-4">
+
         </div>
+
     </div>
+
 </body>
 
 </html>
