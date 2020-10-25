@@ -1,6 +1,7 @@
 var minutesDisplay = document.querySelector("#minutes");
 var secondsDisplay = document.querySelector("#seconds");
 var btnStart = document.querySelector("#start");
+var questionDisplay = document.querySelector("#displayQuestion");
 
 var totalSeconds = 0;
 var secondsElapsed = 0;
@@ -10,12 +11,25 @@ var interval;
 
 // The array of questions for the quiz.
 var questions = [
-  { q: "Inside which HTML element do we put the JavaScript?", options:["<javascript>","<scripting>","<js>","<script>"], a: "<script>" },
-  { q: "What is the correct syntax for referring to an external script called 'xxx.js'?", options:["<script href='xxx.js'", "<script src='xxx.js'","<script name='xxx.js'"], a: "<script src='xxx.js'>" },
-  { q: "The external JavaScript file must contain the <script> tag.", options:["False","True"], a: "False" },
-  { q: "How to write an IF statement in JavaScript?", options:["if(i==5)","if i = 5","if then"],  a: "if (i == 5)" },
-  { q: "How does a WHILE loop start?", options:["for","do","while"] , a: "while" }
+  { q: "Inside which HTML element do we put the JavaScript?" }
 ];
+
+//
+
+var lastQuestion = questions.length - 1;
+
+var runningQuestion = 0;
+
+// render a question
+
+function renderQuestion(){
+
+  t = questions[0];
+
+  questionDisplay.textContent = t.q;
+
+
+}//
 
 // This function are just for making sure the numbers look nice for the html elements
 function getFormattedMinutes() {
@@ -67,6 +81,7 @@ function setTime() {
 
 
 function startTimer() {
+  renderQuestion();
   setTime();
 
   // Timer only start if totalSeconds is > 0
@@ -82,3 +97,4 @@ function startTimer() {
 
 
 btnStart.addEventListener("click", startTimer);
+//btnStart.addEventListener("click", renderQuestion);
