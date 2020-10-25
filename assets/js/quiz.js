@@ -15,13 +15,16 @@ var interval;
 
 // The array of questions for the quiz.
 var questions = [
-  {
-    q: "Inside which HTML element do we put the JavaScript?",
-    c0: "<script>",
-    c1: "<js>",
-    c2: "<javascript>",
-    c3: "<!js-->"
-  }
+	{
+		q: "Inside which HTML element do we put the JavaScript?",
+		answers: {
+      c0: "<script>",
+      c1: "<js>",
+      c2: "<javascript>",
+      c3: "<!js-->"
+		},
+		correctAnswer: 'c0'
+	}
 ];
 
 //
@@ -38,10 +41,10 @@ function renderQuestion() {
     var question = questions[i];
 
     questionDisplay.textContent = question.q
-    choiseDisplay0.textContent = question.c0;
-    choiseDisplay1.textContent = question.c1;
-    choiseDisplay2.textContent = question.c2;
-    choiseDisplay3.textContent = question.c3;
+    choiseDisplay0.textContent = question.answers.c0;
+    choiseDisplay1.textContent = question.answers.c1;
+    choiseDisplay2.textContent = question.answers.c2;
+    choiseDisplay3.textContent = question.answers.c3;
 
   }
 
