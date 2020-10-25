@@ -12,8 +12,7 @@
     <!-- Adding My own CSS -->
     <link rel="stylesheet" href="./assets/stylesheet/style.css">
 
-    <!-- Adding my Js file -->
-    <script src="./assets/js/quiz.js"></script>
+
 
     <title>My JavaScript Quiz</title>
 </head>
@@ -27,13 +26,14 @@
             <!-- Counter Card-->
             <div class="card" style="width: 18rem; height: 10rem;">
                 <div class="card-body" style="text-align: center;">
-                    <h1 class="card-title timer">Timer:
-                        <a id="minutes" style="font-size: 75%;">25</a>
+
+                    <h3 class="card-title timer">Timer:
+                        <a id="minutes" style="font-size: 75%;">00</a>
                         <a style="font-size: 75%;">:</a>
                         <a id="seconds" style="font-size: 75%;">00</a>
-                    </h1>
-                    <a href="#" class="btn btn-primary">Start</a>
-                    <p class="card-text"></p>
+                    </h3>
+                    <button id="start" type="button" class="btn btn-primary">Start</button>
+                    <p class="card-text">(You have 10 minutes)</p>
                 </div>
             </div>
 
@@ -57,6 +57,8 @@
 
     </div>
 
+
+    <script src="./assets/js/quiz.js"></script>
 </body>
 
 </html>
