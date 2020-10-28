@@ -24,31 +24,50 @@ var questions = [
       c3: "<!js-->"
 		},
 		correctAnswer: 'c0'
+  },
+  {
+		q: "2",
+		answers: {
+      c0: "<script>",
+      c1: "<js>",
+      c2: "<javascript>",
+      c3: "<!js-->"
+		},
+		correctAnswer: 'c0'
 	}
 ];
 
-//
+var currectQuestion = 0;
+var questionIndex = currectQuestion;
+console.log('on var ' + questionIndex);
 
-var lastQuestion = questions.length - 1;
+// Display Current question
 
-var runningQuestion = 0;
-
-// render a question
 
 function renderQuestion() {
 
-  for (var i = 0; i < questions.length; i++) {
-    var question = questions[i];
+  console.log('on function ' + currectQuestion);
 
-    questionDisplay.textContent = question.q
-    choiseDisplay0.textContent = question.answers.c0;
-    choiseDisplay1.textContent = question.answers.c1;
-    choiseDisplay2.textContent = question.answers.c2;
-    choiseDisplay3.textContent = question.answers.c3;
+  if (currectQuestion < questions.length){
+
+      console.log(currectQuestion);
+
+      questionDisplay.textContent = questions[currectQuestion].q;
+      choiseDisplay0 .textContent = questions[currectQuestion].answers.c0;
+      choiseDisplay1 .textContent = questions[currectQuestion].answers.c1;
+      choiseDisplay2 .textContent = questions[currectQuestion].answers.c2;
+      choiseDisplay3 .textContent = questions[currectQuestion].answers.c3;
+
+      questionIndex = currectQuestion;
+
+      currectQuestion++;
+  
 
   }
 
-}//
+
+
+  }
 
 // This function are just for making sure the numbers look nice for the html elements
 function getFormattedMinutes() {
