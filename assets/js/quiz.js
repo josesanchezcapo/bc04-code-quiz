@@ -12,62 +12,103 @@ var secondsElapsed = 0;
 var secondsElapsed = 0;
 var interval;
 
-
 // The array of questions for the quiz.
 var questions = [
-	{
-		q: "Inside which HTML element do we put the JavaScript?",
-		answers: {
+  {
+    q: "Inside which HTML element do we put the JavaScript?",
+    answers: {
       c0: "<script>",
       c1: "<js>",
       c2: "<javascript>",
       c3: "<!js-->"
-		},
-		correctAnswer: 'c0'
+    },
+    correctAnswer: 'c0'
   },
   {
-		q: "2",
-		answers: {
-      c0: "<script>",
-      c1: "<js>",
-      c2: "<javascript>",
-      c3: "<!js-->"
-		},
-		correctAnswer: 'c0'
-	}
+    q: "2",
+    answers: {
+      c0: "2.0",
+      c1: "2.1",
+      c2: "2.2",
+      c3: "2.3"
+    },
+    correctAnswer: 'c0'
+  },
+  {
+    q: "3",
+    answers: {
+      c0: "3.0",
+      c1: "3.1",
+      c2: "3.2",
+      c3: "3.3"
+    },
+    correctAnswer: 'c0'
+  },
+  {
+    q: "4",
+    answers: {
+      c0: "4.0",
+      c1: "4.1",
+      c2: "4.2",
+      c3: "4.3"
+    },
+    correctAnswer: 'c0'
+  },
+  {
+    q: "5",
+    answers: {
+      c0: "5.0",
+      c1: "5.1",
+      c2: "5.2",
+      c3: "5.3"
+    },
+    correctAnswer: 'c0'
+  },
+  {
+    q: "6",
+    answers: {
+      c0: "6.0",
+      c1: "6.1",
+      c2: "6.2",
+      c3: "6.3"
+    },
+    correctAnswer: 'c0'
+  }
 ];
 
 var currectQuestion = 0;
 var questionIndex = currectQuestion;
-console.log('on var ' + questionIndex);
 
 // Display Current question
 
 
 function renderQuestion() {
 
-  console.log('on function ' + currectQuestion);
+  if (currectQuestion < questions.length) {
 
-  if (currectQuestion < questions.length){
+    questionDisplay.textContent = questions[currectQuestion].q;
+    choiseDisplay0.textContent = questions[currectQuestion].answers.c0;
+    choiseDisplay1.textContent = questions[currectQuestion].answers.c1;
+    choiseDisplay2.textContent = questions[currectQuestion].answers.c2;
+    choiseDisplay3.textContent = questions[currectQuestion].answers.c3;
 
-      console.log(currectQuestion);
+    currectQuestion++;
+    console.log(currectQuestion);
+    questionIndex = currectQuestion;
 
-      questionDisplay.textContent = questions[currectQuestion].q;
-      choiseDisplay0 .textContent = questions[currectQuestion].answers.c0;
-      choiseDisplay1 .textContent = questions[currectQuestion].answers.c1;
-      choiseDisplay2 .textContent = questions[currectQuestion].answers.c2;
-      choiseDisplay3 .textContent = questions[currectQuestion].answers.c3;
-
-      questionIndex = currectQuestion;
-
-      currectQuestion++;
-  
+    answerValuation();
 
   }
 
+}
+
+function answerValuation() {
+
+  choiseDisplay0.addEventListener('click', renderQuestion);
 
 
-  }
+}
+
 
 // This function are just for making sure the numbers look nice for the html elements
 function getFormattedMinutes() {
