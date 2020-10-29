@@ -17,10 +17,15 @@
 }
 
 /* choises button */
-#btnQuiz_0, #btnQuiz_1, #btnQuiz_2, #btnQuiz_3 {
-    width: 250px;
-    margin: 30px 30px 10px 0px;
-    padding: 30px 10px;
+.choise-container {
+    width: 150px;
+ /*   margin: 30px 30px 10px 0px; */
+ /*   padding: 30px 10px;  */
     margin-left: 15%
+}
+
+.btn-secondary {
+
+    margin-top: 10px;
 }
 
