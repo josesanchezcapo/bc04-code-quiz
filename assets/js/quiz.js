@@ -2,16 +2,16 @@
 // select all elements
 
 var start = document.querySelector("#start");
-var quiz = document.getElementById("quiz");
+var quiz = document.querySelector("#quiz");
 var questionDisplay = document.querySelector("#displayQuestion");
 var choiceA = document.querySelector("#A");
 var choiceB = document.querySelector("#B");
 var choiceC = document.querySelector("#C");
 var choiceD = document.querySelector("#D");
-var counter = document.getElementById("counter");
-var timeGauge = document.getElementById("timeGauge");
-var progress = document.getElementById("progress");
-var scoreDiv = document.getElementById("scoreContainer");
+var counter = document.querySelector("#counter");
+var timeGauge = document.querySelector("#timeGauge");
+var progress = document.querySelector("#progress");
+var scoreDiv = document.querySelector("#scoreContainer");
 var displayScore = document.querySelector("#finalScore");
 var displayScoreImage = document.querySelector("#finalScoreImage");
 
