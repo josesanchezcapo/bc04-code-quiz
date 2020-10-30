@@ -3,8 +3,14 @@
 bc04-code-quiz
 Web APIs: Code Quiz
 ```
-```bash
-The objective was to create a multiple choice quiz using JavaScript; in this quiz, the user will have to choose the correct answer out of 4 choices in less than 10 seconds; if the user didn't answer the question in 10sec, it would go to the next question automatically, and the question is marked wrong.  At the end of the quiz, the system will ask for the User Name and show the results.
+```
+The objective was to create a multiple choice quiz using JavaScript; in this quiz, 
+the user will have to choose the correct answer out of 4 choices in less than 10 seconds; 
+if the user didn't answer the question in 10sec, it would go to the next question automatically,
+ and the question is marked wrong. 
+ 
+  At the end of the quiz, the system will ask for the User Name and show the results.
+
 ```
 
 # Project Url
