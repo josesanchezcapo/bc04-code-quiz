@@ -12,14 +12,12 @@
     <!-- Adding My own CSS -->
     <link rel="stylesheet" href="./assets/stylesheet/style.css">
 
-
-
+    <!-- Title -->
     <title>My JavaScript Quiz</title>
 </head>
 
 <body>
-
-    <div class="container">
+    <div id="container">
 
         <div class="jumbotron">
 
@@ -27,66 +25,81 @@
             <div class="card" style="width: 18rem; height: 10rem;">
                 <div class="card-body" style="text-align: center;">
 
-                    <h3 class="card-title timer">Timer:
-                        <a id="minutes" style="font-size: 75%;">00</a>
-                        <a style="font-size: 75%;">:</a>
-                        <a id="seconds" style="font-size: 75%;">00</a>
-                    </h3>
                     <button id="start" type="button" class="btn btn-primary">Start</button>
-                    <p class="card-text">(You have 10 minutes)</p>
+                    <div id="timer">
+                        <h3 class="card-title timer">Timer:
+                            <div id="counter"></div>
+                            <div id="btimeGauge"></div>
+                            <div id="timeGauge"></div>
+                        </h3>
+                        <p class="card-text">(10 seconds per question)</p>
+                    </div>
+                    <div id="progress"></div>
                 </div>
+                <div id="scoreContainer" style="display: none"></div>
             </div>
-
-            <!-- Quiz Container -->
-
-            <h1 class="display-4" style="text-align: center;">JavaScript Quiz</h1>
-            <hr class="my-4">
-
-            <!-- Questions -->
-            <h2 id="displayQuestion" style="text-align: center;"></h2>
-            <hr class="my-4">
-            <div class="container">
-                <div class="row">
-                    <div class="col">
-                        <button type="button" class="btn btn-primary btn-lg btn-block">
-                            <div class="choise-container">
-                                <p class="choise-numner">1</p>
-                                <p class="choise-text" data-selection="1">Choise 1</p>
-                            </div>
-                        </button>
-                    </div>
-                    <div class="col">
-                        <button type="button" class="btn btn-primary btn-lg btn-block">
-                            <div class="choise-container">
-                                <p class="choise-numner">2</p>
-                                <p class="choise-text" data-selection="2">Choise 2</p>
-                            </div>
-                        </button>
-                    </div>
-                </div>
-                <div class="w-100">
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <button type="button" class="btn btn-primary btn-lg btn-block btn-secondary">
-                            <div class="choise-container">
-                                <p class="choise-numner">3</p>
-                                <p class="choise-text" data-selection="3">Choise 3</p>
-                            </div>
-                        </button>
-                    </div>
-                    <div class="col">
-                        <button type="button" class="btn btn-primary btn-lg btn-block btn-secondary">
-                            <div class="choise-container">
-                                <p class="choise-numner">4</p>
-                                <p class="choise-text" data-selection="4">Choise 4</p>
-                            </div>
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <hr class="my-4">
         </div>
+
+        <!-- Quiz Container -->
+
+        <h1 class="display-4" style="text-align: center;">JavaScript Quiz</h1>
+        <hr class="my-4">
+
+        <!-- Questions -->
+        <h2 id="displayQuestion" style="text-align: center;"></h2>
+        <hr class="my-4">
+
+
+        <!-- Display Choices-->
+        <div id="choices" class="container">
+            <div class="row">
+                <div class="col">
+                    <button type="button" class="btn btn-primary btn-lg btn-block">
+                        <div class="choice-container">
+                            <p class="choice-number"></p>
+                            <p class="choice" id="A" onclick="checkAnswer('A')">Select Best Choice</p>
+                        </div>
+                    </button>
+                </div>
+                <div class="col">
+                    <button type="button" class="btn btn-primary btn-lg btn-block">
+                        <div class="choice-container">
+                            <p class="choice-number"></p>
+                            <p class="choice" id="B" onclick="checkAnswer('B')">Select Best Choice</p>
+                        </div>
+                    </button>
+                </div>
+            </div>
+            <div class="w-100">
+
+            </div>
+            <div class="row">
+                <div class="col">
+                    <button type="button" class="btn btn-lg btn-block btn-secondary" style="margin-top: 10%;">
+                        <div class="choice-container">
+                            <p class="choice-number"></p>
+                            <p class="choice" id="C" onclick="checkAnswer('C')">Select Best Choice</p>
+                        </div>
+                    </button>
+                </div>
+                <div class="col">
+                    <button type="button" class="btn btn-lg btn-block btn-secondary" style="margin-top: 10%;">
+                        <div class="choice-container">
+                            <p class="choice-number"></p>
+                            <p class="choice" id="D" onclick="checkAnswer('D')">Select Best Choice</p>
+                        </div>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Display Score and Percentage ; further show image to show How well or bad the user did-->
+        <hr class="my-4">
+        <div id="scoreNumber">TEST</div>
+        <div id="finalScoreImage" style="text-align: center;"></div>
+        <div id="finalScore" style="text-align: center;"></div>
+        
+    </div>
     </div>
     <script src="./assets/js/quiz.js"></script>
 </body>

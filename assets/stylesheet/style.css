@@ -1,9 +1,5 @@
 /* Adding style to the buttons */
 
-/* to all the buttons */
-.buttons {
-    margin-top: 30px;
-}
 
 /* counter button */
 #btnStart {
@@ -17,15 +13,10 @@
 }
 
 /* choises button */
-.choise-container {
+.choice-container {
     width: 150px;
  /*   margin: 30px 30px 10px 0px; */
  /*   padding: 30px 10px;  */
     margin-left: 15%
-}
-
-.btn-secondary {
-
-    margin-top: 10px;
 }
 

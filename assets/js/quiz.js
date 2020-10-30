@@ -1,13 +1,20 @@
- // definitions
 
-var minutesDisplay = document.querySelector("#minutes");
-var secondsDisplay = document.querySelector("#seconds");
-var btnStart = document.querySelector("#start");
+// select all elements
+
+var start = document.querySelector("#start");
+var quiz = document.getElementById("quiz");
 var questionDisplay = document.querySelector("#displayQuestion");
-var choiseDisplay0 = document.querySelector("#choice_0");
-var choiseDisplay1 = document.querySelector("#choice_1");
-var choiseDisplay2 = document.querySelector("#choice_2");
-var choiseDisplay3 = document.querySelector("#choice_3");
+var choiceA = document.querySelector("#A");
+var choiceB = document.querySelector("#B");
+var choiceC = document.querySelector("#C");
+var choiceD = document.querySelector("#D");
+var counter = document.getElementById("counter");
+var timeGauge = document.getElementById("timeGauge");
+var progress = document.getElementById("progress");
+var scoreDiv = document.getElementById("scoreContainer");
+var displayScore = document.querySelector("#finalScore");
+var displayScoreImage = document.querySelector("#finalScoreImage");
+
 
 var totalSeconds = 0;
 var secondsElapsed = 0;
@@ -16,168 +23,156 @@ var interval;
 
 // The array of questions for the quiz.
 var questions = [
-    {
-      q: "Inside which HTML element do we put the JavaScript?",
-      answers: {
-        c0: "<script>",
-        c1: "<js>",
-        c2: "<javascript>",
-        c3: "<!js-->"
-      },
-      correctAnswer: 'c0'
-    },
-    {
-      q: "Question -2",
-      answers: {
-        c0: "2.0",
-        c1: "2.1",
-        c2: "2.2",
-        c3: "2.3"
-      },
-      correctAnswer: 'c0'
-    },
-    {
-      q: "3",
-      answers: {
-        c0: "3.0",
-        c1: "3.1",
-        c2: "3.2",
-        c3: "3.3"
-      },
-      correctAnswer: 'c0'
-    },
-    {
-      q: "4 test",
-      answers: {
-        c0: "4.0",
-        c1: "4.1",
-        c2: "4.2",
-        c3: "4.3"
-      },
-      correctAnswer: 'c0'
-    },
-    {
-      q: "5",
-      answers: {
-        c0: "5.0",
-        c1: "5.1",
-        c2: "5.2",
-        c3: "5.3"
-      },
-      correctAnswer: 'c0'
-    },
-    {
-      q: "6-test",
-      answers: {
-        c0: "6.0",
-        c1: "6.1",
-        c2: "6.2",
-        c3: "6.3"
-      },
-      correctAnswer: 'c0'
-    }
-  ];
-  
-  //var currectQuestion = 0;
-  //var questionIndex = currectQuestion;
+  {
+    question: "Inside which HTML element do we put the JavaScript?",
+    choiceA: "MWJNWNFWIFIWJ",
+    choiceB: "SDJDFIJEICFIE",
+    choiceC: "Render",
+    choiceD: "SDIWHIHIWDFWHIW",
+    correct: "A"
+  }, {
+    question: "What does CSS stand for?",
+    choiceA: "WDIJIWJIFIJ",
+    choiceB: "Correct",
+    choiceC: "Wrong",
+    choiceD: "SDIWHIHIWDFWHIW",
+    correct: "B"
+  }, {
+    question: "Cayey",
+    choiceA: "SIHIEWHIFDSCWVIH",
+    choiceB: "SUuhuidhuchuihde",
+    choiceC: "Cscuhuhducv8h8d",
+    choiceD: "SDIWHIHIWDFWHIW",
+    correct: "C"
+  }, {
+    question: "Montellano",
+    choiceA: "SIHIEWHIFDSCWVIH",
+    choiceB: "SUuhuidhuchuihde",
+    choiceC: "Cscuhuhducv8h8d",
+    choiceD: "SDIWHIHIWDFWHIW",
+    correct: "C"
+  }
+];
 
-  function renderQuestion() {
-  
+// Define varibles
+
+var lastQuestion = questions.length - 1;
+var runningQuestion = 0;
+var count = 0;
+var questionTime = 10; // 10s
+var gaugeWidth = 150; // 150px
+var gaugeUnit = gaugeWidth / questionTime;
+var TIMER;
+var score = 0;
+
+// Render questions
+function renderQuestion() {
+  var q = questions[runningQuestion];
+
+  questionDisplay.textContent = q.question;
+  choiceA.innerHTML = q.choiceA;
+  choiceB.innerHTML = q.choiceB;
+  choiceC.innerHTML = q.choiceC;
+  choiceD.innerHTML = q.choiceD;
+}
+
+start.addEventListener("click", startQuiz);
+
+// Star Quiz
+function startQuiz() {
+  start.style.display = "none";
+  renderQuestion();
+  // quiz.style.display = "block";
+  renderProgress();
+  renderCounter();
+  TIMER = setInterval(renderCounter, 1000); // 1000ms = 1s
+
 
 }
-    /*
-   // if (currectQuestion < questions.length) {
-  
-      questionDisplay.textContent = questions[currectQuestion].q;
-      choiseDisplay0.textContent = questions[currectQuestion].answers.c0;
-      choiseDisplay1.textContent = questions[currectQuestion].answers.c1;
-      choiseDisplay2.textContent = questions[currectQuestion].answers.c2;
-      choiseDisplay3.textContent = questions[currectQuestion].answers.c3;
-  
-      currectQuestion++;
-      questionIndex = currectQuestion;
-      answerValuation();
-  
-    }
-  
+
+// Progress
+function renderProgress() {
+  for (var qIndex = 0; qIndex <= lastQuestion; qIndex++) {
+    progress.innerHTML += "<div class='prog' id=" + qIndex + "></div>";
   }
-  
-  function answerValuation() {
-  
-    
+}
 
-    
-  
-  
-  
-  }
-*/
+// Counter
 
-// This function are just for making sure the numbers look nice for the html elements
-
-function getFormattedMinutes() {
-
-    var secondsLeft = totalSeconds - secondsElapsed;
-  
-    var minutesLeft = Math.floor(secondsLeft / 60);
-  
-    var formattedMinutes;
-  
-    if (minutesLeft < 10) {
-      formattedMinutes = "0" + minutesLeft;
+function renderCounter() {
+  if (count <= questionTime) {
+    counter.innerHTML = count;
+    timeGauge.style.width = count * gaugeUnit + "px";
+    count++
+  } else {
+    count = 0;
+    // change progress color to red
+    answerIsWrong();
+    if (runningQuestion < lastQuestion) {
+      runningQuestion++;
+      renderQuestion();
     } else {
-      formattedMinutes = minutesLeft;
+      // end the quiz and show the score
+      clearInterval(TIMER);
+      scoreRender();
     }
-  
-    return formattedMinutes;
   }
-  
-  // This function are just for making sure the numbers look nice for the html elements
-  
-  function getFormattedSeconds() {
-    var secondsLeft = (totalSeconds - secondsElapsed) % 60;
-  
-    var formattedSeconds;
-  
-    if (secondsLeft < 10) {
-      formattedSeconds = "0" + secondsLeft;
-    } else {
-      formattedSeconds = secondsLeft;
-    }
-  
-    return formattedSeconds;
-  }
-  
-  function renderTime() {
-    // When renderTime is called it sets the textContent for the timer html...
-  
-    minutesDisplay.textContent = getFormattedMinutes();
-    secondsDisplay.textContent = getFormattedSeconds();
-  }
-  
-  function setTime() {
-    var minutes = 10;
-  
-    clearInterval(interval);
-    totalSeconds = minutes * 60;
+}
 
+// checkAnwer
+
+function checkAnswer(answer) {
+  if (answer == questions[runningQuestion].correct) {
+    // answer is correct
+    score++;
+    // change progress color to green
+    answerIsCorrect();
+  } else {
+    // answer is wrong
+    // change progress color to red
+    answerIsWrong();
   }
-  
-  function startTimer() {
-    setTime();
-    btnStart.textContent = 'stop';
+  count = 0;
+  if (runningQuestion < lastQuestion) {
+    runningQuestion++;
     renderQuestion();
-
-    // Timer only start if totalSeconds is > 0
-    if (totalSeconds > 0) {
-      interval = setInterval(function () {
-        secondsElapsed++;
-        // RenderTime() is called here once every second.
-        renderTime();
-      }, 1000);
-    }
-
+  } else {
+    // end the quiz and show the score
+    clearInterval(TIMER);
+    scoreRender();
   }
-  
+}
 
-btnStart.addEventListener("click",startTimer);
+// answer is correct
+function answerIsCorrect() {
+  document.getElementById(runningQuestion).style.backgroundColor = "#0f0";
+}
+
+// answer is Wrong
+function answerIsWrong() {
+  document.getElementById(runningQuestion).style.backgroundColor = "#f00";
+}
+
+// score render
+function scoreRender() {
+  scoreDiv.style.display = "block";
+
+  // calculate the amount of question percent answered by the user
+  var scorePerCent = Math.round(100 * score / questions.length);
+
+  // choose the image based on the scorePerCent
+  var img = (scorePerCent >= 80) ? "./assets/img/5.png" :
+    (scorePerCent >= 60) ? "./assets/img/4.png" :
+      (scorePerCent >= 40) ? "./assets/img/3.png" :
+        (scorePerCent >= 20) ? "./assets/img/2.png" :
+          "./assets/img/1.png";
+
+
+
+  // Display score and %
+  displayScoreImage.innerHTML = "<img src=" + img + ">";
+  displayScore.textContent = scorePerCent + ' %';
+
+  // Local storage name and score
+
+}
