@@ -24,33 +24,33 @@ var interval;
 // The array of questions for the quiz.
 var questions = [
   {
-    question: "Inside which HTML element do we put the JavaScript?",
-    choiceA: "MWJNWNFWIFIWJ",
-    choiceB: "SDJDFIJEICFIE",
-    choiceC: "Render",
-    choiceD: "SDIWHIHIWDFWHIW",
+    question: "1. What is jQuery?",
+    choiceA: "HTML",
+    choiceB: "SQL library",
+    choiceC: "js library.",
+    choiceD: "A new thing",
+    correct: "C"
+  }, {
+    question: "Dom",
+    choiceA: "API for HTML",
+    choiceB: "getElementById()",
+    choiceC: "collection",
+    choiceD: "B & C",
     correct: "A"
   }, {
-    question: "What does CSS stand for?",
-    choiceA: "WDIJIWJIFIJ",
-    choiceB: "Correct",
-    choiceC: "Wrong",
-    choiceD: "SDIWHIHIWDFWHIW",
-    correct: "B"
-  }, {
-    question: "Cayey",
-    choiceA: "SIHIEWHIFDSCWVIH",
-    choiceB: "SUuhuidhuchuihde",
-    choiceC: "Cscuhuhducv8h8d",
-    choiceD: "SDIWHIHIWDFWHIW",
+    question: "JSON?",
+    choiceA: "used for transmitting ",
+    choiceB: "***** My son name ****",
+    choiceC: "JavaScript Object Notation",
+    choiceD: "A new Server  by MSIBM     ",
     correct: "C"
   }, {
-    question: "Montellano",
-    choiceA: "SIHIEWHIFDSCWVIH",
-    choiceB: "SUuhuidhuchuihde",
-    choiceC: "Cscuhuhducv8h8d",
-    choiceD: "SDIWHIHIWDFWHIW",
-    correct: "C"
+    question: "API?",
+    choiceA: "application programming interface",
+    choiceB: "application process intercom",
+    choiceC: "Facebook App ",
+    choiceD: "A % C",
+    correct: "A"
   }
 ];
 
