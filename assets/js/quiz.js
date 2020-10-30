@@ -45,7 +45,7 @@ var questions = [
     choiceD: "A new Server",
     correct: "C"
   }, {
-    question: "pplication programming interface?",
+    question: "application programming interface?",
     choiceA: "API",
     choiceB: "APPI",
     choiceC: "IPA",
