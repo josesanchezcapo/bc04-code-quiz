@@ -27,7 +27,7 @@ var questions = [
     question: "1. What is jQuery?",
     choiceA: "HTML",
     choiceB: "SQL library",
-    choiceC: "js library.",
+    choiceC: "js library",
     choiceD: "A new thing",
     correct: "C"
   }, {
@@ -38,17 +38,17 @@ var questions = [
     choiceD: "B & C",
     correct: "A"
   }, {
-    question: "JSON?",
-    choiceA: "used for transmitting ",
-    choiceB: "***** My son name ****",
-    choiceC: "JavaScript Object Notation",
-    choiceD: "A new Server  by MSIBM     ",
+    question: "JavaScript Object Notation",
+    choiceA: "DOM",
+    choiceB: "My son name",
+    choiceC: "json",
+    choiceD: "A new Server",
     correct: "C"
   }, {
-    question: "API?",
-    choiceA: "application programming interface",
-    choiceB: "application process intercom",
-    choiceC: "Facebook App ",
+    question: "pplication programming interface?",
+    choiceA: "API",
+    choiceB: "APPI",
+    choiceC: "IPA",
     choiceD: "A % C",
     correct: "A"
   }
