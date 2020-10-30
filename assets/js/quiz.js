@@ -54,7 +54,7 @@ var questions = [
   }
 ];
 
-// Define varibles
+// Define variables
 
 var lastQuestion = questions.length - 1;
 var runningQuestion = 0;
@@ -65,7 +65,7 @@ var gaugeUnit = gaugeWidth / questionTime;
 var TIMER;
 var score = 0;
 
-// Render questions
+// Render questions and choices
 function renderQuestion() {
   var q = questions[runningQuestion];
 
@@ -76,9 +76,10 @@ function renderQuestion() {
   choiceD.innerHTML = q.choiceD;
 }
 
+// Looking to start
 start.addEventListener("click", startQuiz);
 
-// Star Quiz
+// Quiz Start
 function startQuiz() {
   start.style.display = "none";
   renderQuestion();
@@ -119,41 +120,50 @@ function renderCounter() {
   }
 }
 
-// checkAnwer
+// Validate answers
 
 function checkAnswer(answer) {
   if (answer == questions[runningQuestion].correct) {
-    // answer is correct
+
+    // When correct
     score++;
-    // change progress color to green
+
+    // change progress color to green when correct
     answerIsCorrect();
+
   } else {
-    // answer is wrong
+
+    // When wrong
     // change progress color to red
+
     answerIsWrong();
   }
+
   count = 0;
   if (runningQuestion < lastQuestion) {
     runningQuestion++;
     renderQuestion();
+
   } else {
-    // end the quiz and show the score
+
+    // end and show scores
+
     clearInterval(TIMER);
     scoreRender();
   }
 }
 
-// answer is correct
+// When answer is correct
 function answerIsCorrect() {
   document.getElementById(runningQuestion).style.backgroundColor = "#0f0";
 }
 
-// answer is Wrong
+// When answer is Wrong
 function answerIsWrong() {
   document.getElementById(runningQuestion).style.backgroundColor = "#f00";
 }
 
-// score render
+// score
 function scoreRender() {
   scoreDiv.style.display = "block";
 
