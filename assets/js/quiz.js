@@ -12,9 +12,9 @@ var counter = document.querySelector("#counter");
 var timeGauge = document.querySelector("#timeGauge");
 var progress = document.querySelector("#progress");
 var scoreDiv = document.querySelector("#scoreContainer");
-var displayScore = document.querySelector("#finalScore");
 var displayScoreImage = document.querySelector("#finalScoreImage");
-
+var displayScorePercentage = document.querySelector("#finalScorePercentage");
+var displayScore = document.querySelector("#finalScore");
 
 var totalSeconds = 0;
 var secondsElapsed = 0;
@@ -185,8 +185,8 @@ function scoreRender() {
   // Display score and %
   displayScoreImage.innerHTML = "<img src=" + img + ">";
 
-  // Adding score to the page
-  displayScore.textContent = scorePerCent + ' %';
+  // Adding score to the page; display score percentage
+  displayScorePercentage.textContent = scorePerCent + ' %';
   displayScore.textContent =  '( ' + theFinalScore + ' questions correct of ' + questions.length + ' )';
 
 
