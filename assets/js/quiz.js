@@ -184,8 +184,10 @@ function scoreRender() {
 
   // Display score and %
   displayScoreImage.innerHTML = "<img src=" + img + ">";
-  //displayScore.textContent = scorePerCent + ' %';
+
+  // Adding score to the page
+  displayScore.textContent = scorePerCent + ' %';
   displayScore.textContent =  '( ' + theFinalScore + ' questions correct of ' + questions.length + ' )';
-  // Local storage name and score
+
 
 }
