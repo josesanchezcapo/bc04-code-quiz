@@ -83,7 +83,7 @@ start.addEventListener("click", startQuiz);
 function startQuiz() {
   start.style.display = "none";
   renderQuestion();
-  // quiz.style.display = "block";
+// quiz.style.display = "block"; deleted
   renderProgress();
   renderCounter();
   TIMER = setInterval(renderCounter, 1000); // 1000ms = 1s
@@ -94,7 +94,9 @@ function startQuiz() {
 // Progress
 function renderProgress() {
   for (var qIndex = 0; qIndex <= lastQuestion; qIndex++) {
+    console.log(qIndex);
     progress.innerHTML += "<div class='prog' id=" + qIndex + "></div>";
+  //  progress.innerHTML += qIndex;
   }
 }
 
@@ -169,6 +171,7 @@ function scoreRender() {
 
   // calculate the amount of question percent answered by the user
   var scorePerCent = Math.round(100 * score / questions.length);
+  var theFinalScore = score;
 
   // choose the image based on the scorePerCent
   var img = (scorePerCent >= 80) ? "./assets/img/5.png" :
@@ -181,8 +184,8 @@ function scoreRender() {
 
   // Display score and %
   displayScoreImage.innerHTML = "<img src=" + img + ">";
-  displayScore.textContent = scorePerCent + ' %';
-
+  //displayScore.textContent = scorePerCent + ' %';
+  displayScore.textContent =  '( ' + theFinalScore + ' questions correct of ' + questions.length + ' )';
   // Local storage name and score
 
 }
