@@ -159,6 +159,7 @@ function checkAnswer(answer) {
 // When answer is correct
 function answerIsCorrect() {
   document.getElementById(runningQuestion).style.backgroundColor = "#0f0";
+
 }
 
 // When answer is Wrong
