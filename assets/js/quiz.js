@@ -12,6 +12,7 @@ var counter = document.querySelector("#counter");
 var timeGauge = document.querySelector("#timeGauge");
 var progress = document.querySelector("#progress");
 var scoreDiv = document.querySelector("#scoreContainer");
+var displayUser = document.querySelector("#getUser");
 var displayScoreImage = document.querySelector("#finalScoreImage");
 var displayScorePercentage = document.querySelector("#finalScorePercentage");
 var displayScore = document.querySelector("#finalScore");
@@ -83,7 +84,7 @@ start.addEventListener("click", startQuiz);
 function startQuiz() {
   start.style.display = "none";
   renderQuestion();
-// quiz.style.display = "block"; deleted
+  // quiz.style.display = "block"; deleted
   renderProgress();
   renderCounter();
   TIMER = setInterval(renderCounter, 1000); // 1000ms = 1s
@@ -96,7 +97,7 @@ function renderProgress() {
   for (var qIndex = 0; qIndex <= lastQuestion; qIndex++) {
     console.log(qIndex);
     progress.innerHTML += "<div class='prog' id=" + qIndex + "></div>";
-  //  progress.innerHTML += qIndex;
+    //  progress.innerHTML += qIndex;
   }
 }
 
@@ -182,12 +183,26 @@ function scoreRender() {
 
 
 
+  // Request User Name
+
+  var userName = prompt("Please enter your name")
+
+  // Save infoirmation to local storage
+  localStorage.setItem("userName", userName);
+  localStorage.setItem("score", theFinalScore);
+
+  var name = localStorage.getItem("userName", userName);
+  var userScore = localStorage.getItem("score", theFinalScore);
+  alert("Thank you " + name + " your score : " + userScore + " of " + questions.length);
+
   // Display score and %
   displayScoreImage.innerHTML = "<img src=" + img + ">";
 
   // Adding score to the page; display score percentage
-  displayScorePercentage.textContent = scorePerCent + ' %';
-  displayScore.textContent =  '( ' + theFinalScore + ' questions correct of ' + questions.length + ' )';
+  displayUser.textContent = "Thank you " + name;
+  displayScorePercentage.textContent = scorePerCent + " %";
+  displayScore.textContent = "( " + theFinalScore + " questions correct of " + questions.length + " )";
 
 
 }
+
